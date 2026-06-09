@@ -7,8 +7,8 @@ reports for each seed.
 
 ## Overview
 
-- reads one FASTA file per run, with one FASTA record mapped to one protein
-  chain
+- reads one FASTA file per run, where each FASTA file represents one
+  protein complex and may contain multiple chains
 - runs local ESMFold2 inference through a simple command-line interface
 - writes per-seed mmCIF structures, confidence artifacts, and text reports
 - collects all seed-level metrics into one summary CSV at the root output
@@ -24,7 +24,7 @@ reports for each seed.
 Clone the repository and install the package in your environment.
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/PumpkinL/esmfold2-complex.git
 cd esmfold2-complex
 
 # Option 1: install with uv
@@ -51,7 +51,9 @@ The CLI takes one positional FASTA file:
 esmfold2-complex path/to/complex.fasta
 ```
 
-Each FASTA record is treated as one protein chain in the complex.
+A FASTA file represents one protein complex and may contain multiple
+records/chains. Each FASTA record is treated as one protein chain in that
+complex.
 
 ### Common examples
 
